@@ -1,0 +1,414 @@
+/* General */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f7fb;
+  color: #222;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+/* Header */
+header {
+  padding: 45px 30px 25px;
+}
+
+.header-top {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+header p {
+  color: #666;
+  font-size: 17px;
+}
+
+/* Theme Button */
+.theme-btn {
+  border: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: white;
+  font-size: 22px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease;
+}
+
+.theme-btn:hover {
+  transform: scale(1.1);
+}
+
+/* Search Button */
+.search-section {
+  width: 90%;
+  max-width: 600px;
+  margin: 10px auto 25px;
+}
+
+#searchInput {
+  width: 100%;
+  padding: 15px 20px;
+  border: none;
+  outline: none;
+  border-radius: 30px;
+  background: white;
+  font-size: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: 0.3s ease;
+}
+
+#searchInput:focus {
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Filters */
+.filters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 35px;
+  padding: 0 20px;
+}
+
+.filter-btn {
+  border: none;
+  background: white;
+  color: #333;
+  padding: 11px 22px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.filter-btn:hover {
+  transform: translateY(-2px);
+}
+
+.filter-btn.active {
+  background: #111827;
+  color: white;
+}
+
+/* Gallery */
+.gallery {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  padding-bottom: 50px;
+  flex: 1;
+}
+
+.gallery-item {
+  position: relative;
+  height: 260px;
+  overflow: hidden;
+  border-radius: 15px;
+  cursor: pointer;
+  background: white;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.12);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.18);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.08);
+}
+
+/* Caption */
+.caption {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 18px;
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .caption {
+  transform: translateY(0);
+}
+
+/* Favourite Button */
+.favorite-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  font-size: 23px;
+  cursor: pointer;
+  z-index: 5;
+  transition: transform 0.2s ease;
+}
+
+.favorite-btn:hover {
+  transform: scale(1.15);
+}
+
+.favorite-btn.favorited {
+  color: red;
+}
+
+/* No Results */
+.no-results {
+  display: none;
+  position: fixed;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #777;
+  z-index: 10;
+  width: 100%;
+}
+
+.no-results h2 {
+  margin-bottom: 10px;
+}
+
+.no-results p {
+  font-size: 15px;
+}
+
+/* LightBox */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.94);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.lightbox.show {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 80%;
+  max-height: 75%;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* LightBox Buttons */
+.close-btn,
+.prev-btn,
+.next-btn {
+  position: absolute;
+  border: none;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.close-btn:hover,
+.prev-btn:hover,
+.next-btn:hover {
+  transform: scale(1.2);
+}
+
+.close-btn {
+  top: 20px;
+  right: 30px;
+  font-size: 45px;
+}
+
+.prev-btn {
+  left: 30px;
+  font-size: 45px;
+}
+
+.next-btn {
+  right: 30px;
+  font-size: 45px;
+}
+
+/* Image Counter */
+.image-counter {
+  position: absolute;
+  top: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+/* LightBox Caption */
+.lightbox-caption {
+  position: absolute;
+  bottom: 30px;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size: 18px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 25px 15px;
+  background: #111827;
+  color: white;
+  font-size: 14px;
+  margin-top: auto;
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background: #111827;
+  color: white;
+}
+
+body.dark-mode header p {
+  color: #bbb;
+}
+
+body.dark-mode .theme-btn {
+  background: #1f2937;
+  color: white;
+}
+
+body.dark-mode #searchInput {
+  background: #1f2937;
+  color: white;
+}
+
+body.dark-mode #searchInput::placeholder {
+  color: #aaa;
+}
+
+body.dark-mode .filter-btn {
+  background: #1f2937;
+  color: white;
+}
+
+body.dark-mode .filter-btn.active {
+  background: white;
+  color: #111827;
+}
+
+body.dark-mode .gallery-item {
+  background: #1f2937;
+}
+
+/* Media Queries */
+
+/* Tablet */
+@media (max-width: 900px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  header h1 {
+    font-size: 36px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  header {
+    padding-top: 30px;
+  }
+
+  .header-top {
+    align-items: flex-start;
+  }
+
+  header h1 {
+    font-size: 30px;
+  }
+
+  header p {
+    font-size: 14px;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+
+    width: 92%;
+  }
+
+  .gallery-item {
+    height: 240px;
+  }
+
+  .prev-btn {
+    left: 10px;
+    font-size: 35px;
+  }
+
+  .next-btn {
+    right: 10px;
+    font-size: 35px;
+  }
+
+  .close-btn {
+    top: 15px;
+    right: 20px;
+
+    font-size: 35px;
+  }
+
+  .lightbox img {
+    max-width: 88%;
+    max-height: 70%;
+  }
+}

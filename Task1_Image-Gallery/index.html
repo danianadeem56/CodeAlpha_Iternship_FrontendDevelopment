@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>CodeAlpha Iternship_Task 1-Image Gallery</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="header-top">
+        <div>
+          <h1>My Image Gallery</h1>
+          <p>Explore beautiful moments through my gallery</p>
+        </div>
+
+        <!-- Dark Mode -->
+        <button id="themeBtn" class="theme-btn">🌙</button>
+      </div>
+    </header>
+
+    <!-- Search -->
+    <section class="search-section">
+      <input type="text" id="searchInput" placeholder="🔍 Search images..." />
+    </section>
+
+    <!-- Category Filters -->
+    <section class="filters">
+      <button class="filter-btn active" data-category="all">All</button>
+
+      <button class="filter-btn" data-category="nature">Nature</button>
+
+      <button class="filter-btn" data-category="travel">Travel</button>
+
+      <button class="filter-btn" data-category="animals">Animals</button>
+
+      <button class="filter-btn" data-category="favorites">❤️ Favorites</button>
+    </section>
+
+    <!-- Image Gallery -->
+    <main class="gallery">
+      <!-- Nature -->
+      <div
+        class="gallery-item"
+        data-category="nature"
+        data-title="Mountain Landscape"
+      >
+        <img src="images/image1.jpg" alt="Mountain Landscape" />
+
+        <button class="favorite-btn">♡</button>
+
+        <div class="caption">Mountain Landscape</div>
+      </div>
+
+      <div
+        class="gallery-item"
+        data-category="nature"
+        data-title="Snowy Mountains"
+      >
+        <img src="images/image2.jpg" alt="Snowy Mountains" />
+
+        <button class="favorite-btn">♡</button>
+
+        <div class="caption">Snowy Mountains</div>
+      </div>
+
+      <!-- Travel -->
+      <div
+        class="gallery-item"
+        data-category="travel"
+        data-title="Beautiful Beach"
+      >
+        <img src="images/image3.jpg" alt="Beautiful Beach" />
+
+        <button class="favorite-btn">♡</button>
+
+        <div class="caption">Beautiful Beach</div>
+      </div>
+
+      <div
+        class="gallery-item"
+        data-category="travel"
+        data-title="Beach Sunset"
+      >
+        <img src="images/image4.jpg" alt="Beach Sunset" />
+
+        <button class="favorite-btn">♡</button>
+
+        <div class="caption">Beach Sunset</div>
+      </div>
+
+      <!-- Nature -->
+      <div
+        class="gallery-item"
+        data-category="nature"
+        data-title="Beautiful Waterfall"
+      >
+        <img src="images/image5.jpg" alt="Beautiful Waterfall" />
+
+        <button class="favorite-btn">♡</button>
+
+        <div class="caption">Beautiful Waterfall</div>
+      </div>
+
+      <div
+        class="gallery-item"
+        data-category="nature"
+        data-title="Forest Waterfall"
+      >
+        <img src="images/image6.jpg" alt="Forest Waterfall" />
+
+        <button class="favorite-btn">♡</button>
+
+        <div class="caption">Forest Waterfall</div>
+      </div>
+
+      <!-- Animals -->
+      <div
+        class="gallery-item"
+        data-category="animals"
+        data-title="Desert Camels"
+      >
+        <img src="images/image7.jpg" alt="Desert Camels" />
+
+        <button class="favorite-btn">♡</button>
+
+        <div class="caption">Desert Camels</div>
+      </div>
+
+      <div
+        class="gallery-item"
+        data-category="animals"
+        data-title="Persian Cat"
+      >
+        <img src="images/image10.jpg" alt="Persian Cat" />
+
+        <button class="favorite-btn">♡</button>
+
+        <div class="caption">Persian Cat</div>
+      </div>
+
+      <div class="gallery-item" data-category="animals" data-title="Cute Puppy">
+        <img src="images/image11.jpg" alt="Cute Puppy" />
+
+        <button class="favorite-btn">♡</button>
+
+        <div class="caption">Cute Puppy</div>
+      </div>
+
+      <!-- Travel -->
+      <div
+        class="gallery-item"
+        data-category="travel"
+        data-title="Tropical Sunset"
+      >
+        <img src="images/image8.jpg" alt="Tropical Sunset" />
+
+        <button class="favorite-btn">♡</button>
+
+        <div class="caption">Tropical Sunset</div>
+      </div>
+
+      <!-- Nature -->
+      <div
+        class="gallery-item"
+        data-category="nature"
+        data-title="Mountain Lake"
+      >
+        <img src="images/image9.jpg" alt="Mountain Lake" />
+
+        <button class="favorite-btn">♡</button>
+
+        <div class="caption">Mountain Lake</div>
+      </div>
+
+      <div class="gallery-item" data-category="nature" data-title="Forest">
+        <img src="images/image12.jpg" alt="Forest" />
+
+        <button class="favorite-btn">♡</button>
+
+        <div class="caption">Forest</div>
+      </div>
+    </main>
+
+    <!-- No Results -->
+    <div id="noResults" class="no-results">
+      <h2>No images found 😔</h2>
+
+      <p>Try another search or category.</p>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+      <!-- Close -->
+      <button class="close-btn" id="closeBtn">&times;</button>
+
+      <!-- Previous -->
+      <button class="prev-btn" id="prevBtn">&#10094;</button>
+
+      <!-- Image -->
+      <img id="lightboxImage" src="" alt="Gallery Image" />
+
+      <!-- Next -->
+      <button class="next-btn" id="nextBtn">&#10095;</button>
+
+      <!-- Counter -->
+      <div class="image-counter" id="imageCounter">1 / 9</div>
+
+      <!-- Caption -->
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>© 2026 CodeAlpha Image Gallery</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+  </body>
+</html>
